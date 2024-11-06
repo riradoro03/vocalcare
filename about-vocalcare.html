@@ -7,81 +7,221 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        /* Copia aquí los estilos de tu página principal */
-        /* Añade estilos adicionales si es necesario */
+        :root {
+            --primary-color: #4a90e2;
+            --secondary-color: #333;
+            --light-gray: #f5f5f5;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .navbar {
+            background-color: white;
+            padding: 1rem 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+        .navbar li {
+            margin: 0 1.5rem;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: var(--secondary-color);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .navbar a:hover {
+            color: var(--primary-color);
+        }
+
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('elderly-tech.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding-top: 80px;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .mission-section {
+            padding: 5rem 10%;
+            background: linear-gradient(to right, #4a90e2, #357abd);
+            color: white;
+            text-align: center;
+        }
+
+        .mission-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .mission-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s;
+        }
+
+        .mission-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .stats-section {
+            padding: 5rem 10%;
+            background-color: var(--light-gray);
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .stat-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .testimonials {
+            padding: 5rem 10%;
+            background: white;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial-card {
+            background: var(--light-gray);
+            padding: 2rem;
+            border-radius: 15px;
+            position: relative;
+        }
+
+        .testimonial-quote {
+            font-size: 4rem;
+            position: absolute;
+            top: -20px;
+            left: 20px;
+            color: var(--primary-color);
+            opacity: 0.2;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        footer {
+            background: var(--secondary-color);
+            color: white;
+            padding: 2rem 5%;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .navbar ul {
+                justify-content: center;
+            }
+        }
     </style>
 </head>
 <body>
     <nav class="navbar">
         <ul>
             <li><a href="index.html">Inicio</a></li>
-            <li><a href="#idea">Idea</a></li>
-            <li><a href="#mision">Misión</a></li>
-            <li><a href="#mercado">Mercado</a></li>
+            <li><a href="#caracteristicas">Características</a></li>
+            <li><a href="#sobre-nosotros">Sobre Nosotros</a></li>
+            <li><a href="#contacto">Contacto</a></li>
         </ul>
     </nav>
 
-    <section class="hero" id="inicio">
+    <section class="hero">
         <div class="hero-content">
-            <h1>Sobre VocalCare</h1>
-            <p>Mejorando la Calidad de Vida y Autonomía de Nuestros Mayores</p>
+            <h1>Descubre VocalCare</h1>
+            <p>Transformando el cuidado de adultos mayores a través de la tecnología de voz</p>
         </div>
     </section>
 
-    <section class="about" id="idea">
-        <div class="section-title">
-            <h2>Nuestra Idea</h2>
-        </div>
-        <div class="about-content">
-            <p>VocalCare es un asistente de voz con IA diseñado para mejorar la calidad de vida de las personas mayores. Ofrecemos compañía, recordatorios personalizados, acceso a información por voz y actividades guiadas como clases de memoria y yoga.</p>
-        </div>
-    </section>
-
-    <section class="features" id="mision">
-        <div class="section-title">
-            <h2>Nuestra Misión</h2>
-        </div>
-        <div class="features-grid">
-            <div class="feature-card">
-                <i class="fas fa-heart feature-icon"></i>
-                <h3>Combatir la Soledad</h3>
-                <p>Ofrecemos compañía y interacción social a través de nuestra interfaz de voz amigable.</p>
+    <section class="mission-section" id="caracteristicas">
+        <h2>Características Principales</h2>
+        <div class="mission-cards">
+            <div class="mission-card">
+                <i class="fas fa-heart fa-3x mb-4"></i>
+                <h3>Compañía Digital</h3>
+                <p>Combatimos la soledad ofreciendo una presencia amigable y constante mediante tecnología de voz avanzada.</p>
             </div>
-            <div class="feature-card">
-                <i class="fas fa-brain feature-icon"></i>
-                <h3>Estimulación Cognitiva</h3>
-                <p>Proporcionamos ejercicios y actividades para mantener la mente activa y mejorar la memoria.</p>
+            <div class="mission-card">
+                <i class="fas fa-brain fa-3x mb-4"></i>
+                <h3>Estimulación Mental</h3>
+                <p>Ejercicios cognitivos personalizados para mantener la mente activa y saludable.</p>
             </div>
-            <div class="feature-card">
-                <i class="fas fa-dumbbell feature-icon"></i>
-                <h3>Actividad Física</h3>
-                <p>Guiamos a los usuarios a través de ejercicios físicos adaptados a sus capacidades.</p>
+            <div class="mission-card">
+                <i class="fas fa-hand-holding-heart fa-3x mb-4"></i>
+                <h3>Cuidado Integral</h3>
+                <p>Recordatorios de medicación, ejercicios físicos y actividades sociales adaptadas.</p>
             </div>
         </div>
     </section>
 
-    <section class="about" id="mercado">
-        <div class="section-title">
-            <h2>Nuestro Mercado</h2>
-        </div>
-        <div class="about-content">
-            <p>Nos enfocamos en el mercado de tecnología asistencial, principalmente en:</p>
-            <ul>
-                <li>Adultos mayores</li>
-                <li>Familias y cuidadores de adultos mayores</li>
-                <li>Centros de salud y geriátricos</li>
-            </ul>
-            <p>Nuestro objetivo es mejorar la calidad de vida y autonomía de las personas mayores mediante la tecnología accesible y fácil de usar.</p>
-        </div>
-    </section>
-
-    <footer>
-        <p>&copy; 2023 VocalCare. Todos los derechos reservados.</p>
-        <div class="social-icons">
-            <a href="#"><i class="fab fa-facebook"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-        </div>
-    </footer>
-</body>
-</html>
+    <section class="stats-section" id="sobre-nosotros">
+        <h2>VocalCare en Números</h2>
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div class="stat-number">85%</div>
+                <p>Reducción en sensación de soledad</p>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">90%</div>
+                <p>Satisfacción de usuarios</p>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">1000+</div>
+                <p>Usuarios
